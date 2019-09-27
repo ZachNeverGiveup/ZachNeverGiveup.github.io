@@ -50,17 +50,32 @@
         <div class="content">
           <article class="post-entry">
     <div class="header">
-      <div class="title">About</div>
+      <div class="title">简单的frp实现 记录</div>
       <div class="meta">
         <span class="item">
           <span class="iconfont icon-time-circle"></span>
-          <span>2019/08/05</span>
+          <span>2019/09/02</span>
         </span>
 
         
         
-        
-        <span class="item leancloud-visitors" id="/2019/08/05/About/" data-flag-title="About">
+         
+          <span class="item">
+            <span class="iconfont icon-tag1"></span>
+            <span>
+                
+                  
+                    <a href="/tags/linux">linux</a>
+                  
+                
+                  
+                    <a href="/tags/frp">frp</a>
+                  
+                
+            </span>
+          </span>
+         
+        <span class="item leancloud-visitors" id="/2019/09/02/articles/2019/09/02/1567413241983.html/" data-flag-title="简单的frp实现 记录">
           <span class="iconfont icon-eye1"></span>
           <span class="leancloud-visitors-count"></span>
         </span>
@@ -68,7 +83,19 @@
       <div>
       </div>
     </div>
-    <p>大家好，我是Zach.<br>点击下面的“请杯咖啡”查看更多哦~</p>
+    <p>1.去<a href="https://" target="_blank" rel="noopener"></a><a href="https://github.com/fatedier/frp/releases" target="_blank" rel="noopener">https://github.com/fatedier/frp/releases</a>   下载最新版本（C/S）<br>2.配置server端的  frps.ini</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">bind_port = 7000</span><br><span class="line">vhost_http_port = 8080</span><br><span class="line">dashboard_port = 7500</span><br><span class="line"># dashboard 用户名密码，默认都为 admin</span><br><span class="line">dashboard_user = admin</span><br><span class="line">dashboard_pwd = admin</span><br></pre></td></tr></table></figure>
+
+<p>3.启动server端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./frps -c ./frps.ini</span><br></pre></td></tr></table></figure>
+
+<p>4.配置客户端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">server_addr = 118.25.46.145</span><br><span class="line">server_port = 7000</span><br><span class="line"></span><br><span class="line">[web]</span><br><span class="line">type = http</span><br><span class="line">local_port = 8080</span><br><span class="line">custom_domains = zach.frp.chinazach.com</span><br></pre></td></tr></table></figure>
+
+<p>5.启动客户端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frpc -c ./frpc.ini</span><br></pre></td></tr></table></figure>
+
+<p>6.访问<a href="http://chinazach.com:7500/可以查看dashboard" target="_blank" rel="noopener">http://chinazach.com:7500/可以查看dashboard</a></p>
 
 
   
@@ -101,7 +128,7 @@
       本文作者：<a href="http://blog.chinazach.com">Sir Zachary</a>
     </div>
     <div class="link">
-      永久链接：<a href="http://blog.chinazach.com/2019/08/05/About/">http://blog.chinazach.com/2019/08/05/About/</a>
+      永久链接：<a href="http://blog.chinazach.com/2019/09/02/articles/2019/09/02/1567413241983.html/">http://blog.chinazach.com/2019/09/02/articles/2019/09/02/1567413241983.html/</a>
     </div>
     <div class="declare">
       版权声明：本文首发于<a href="http://blog.chinazach.com">Sir Zachary</a>的博客，转载请注明出处！

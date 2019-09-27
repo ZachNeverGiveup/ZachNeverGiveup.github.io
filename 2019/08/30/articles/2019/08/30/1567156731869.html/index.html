@@ -50,17 +50,40 @@
         <div class="content">
           <article class="post-entry">
     <div class="header">
-      <div class="title">About</div>
+      <div class="title">建立此站点踩的坑记录</div>
       <div class="meta">
         <span class="item">
           <span class="iconfont icon-time-circle"></span>
-          <span>2019/08/05</span>
+          <span>2019/08/30</span>
         </span>
 
         
         
-        
-        <span class="item leancloud-visitors" id="/2019/08/05/About/" data-flag-title="About">
+         
+          <span class="item">
+            <span class="iconfont icon-tag1"></span>
+            <span>
+                
+                  
+                    <a href="/tags/docker">docker</a>
+                  
+                
+                  
+                    <a href="/tags/mysql">mysql</a>
+                  
+                
+                  
+                    <a href="/tags/建站">建站</a>
+                  
+                
+                  
+                    <a href="/tags/nginx">nginx</a>
+                  
+                
+            </span>
+          </span>
+         
+        <span class="item leancloud-visitors" id="/2019/08/30/articles/2019/08/30/1567156731869.html/" data-flag-title="建立此站点踩的坑记录">
           <span class="iconfont icon-eye1"></span>
           <span class="leancloud-visitors-count"></span>
         </span>
@@ -68,7 +91,13 @@
       <div>
       </div>
     </div>
-    <p>大家好，我是Zach.<br>点击下面的“请杯咖啡”查看更多哦~</p>
+    <p>用docker容器启动不能完全按照官方的脚本<br>以下是我的脚本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name solo --network=host --volume ~/solo_h2/:/opt/solo/h2/ --publish 1234:8080 \</span><br><span class="line">    --env RUNTIME_DB=&quot;MYSQL&quot; \</span><br><span class="line">    --env JDBC_USERNAME=&quot;root&quot; \</span><br><span class="line">    --env JDBC_PASSWORD=&quot;*&quot; \</span><br><span class="line">    --env JDBC_DRIVER=&quot;com.mysql.cj.jdbc.Driver&quot; \</span><br><span class="line">    --env JDBC_URL=&quot;jdbc:mysql://127.0.0.1:3306/solo?useUnicode=yes&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true&quot; \</span><br><span class="line">    b3log/solo --listen_port=1234 --server_scheme=https --server_host=solo.chinazach.com --server_port=443</span><br></pre></td></tr></table></figure>
+
+<p>注意加上docker容器挂载的数据卷位置<br>注意宿主机端口号、docker容器内部的端口号、以及solo的server port三个端口号的区别<br>注意最新的MySQL8要在最后加上allowPublicKeyRetrieval=true，否则会报错<br>最后solo的几个参数一定要写对，域名要和nginx里面配置的一致，端口号443可以填也可以不填</p>
+<hr>
+<p>nginx的配置：<br><img src="https://img.hacpai.com/file/2019/08/image-467ffbbb.png" alt="image.png"></p>
+<p>注意静态资源文件的处理</p>
 
 
   
@@ -101,7 +130,7 @@
       本文作者：<a href="http://blog.chinazach.com">Sir Zachary</a>
     </div>
     <div class="link">
-      永久链接：<a href="http://blog.chinazach.com/2019/08/05/About/">http://blog.chinazach.com/2019/08/05/About/</a>
+      永久链接：<a href="http://blog.chinazach.com/2019/08/30/articles/2019/08/30/1567156731869.html/">http://blog.chinazach.com/2019/08/30/articles/2019/08/30/1567156731869.html/</a>
     </div>
     <div class="declare">
       版权声明：本文首发于<a href="http://blog.chinazach.com">Sir Zachary</a>的博客，转载请注明出处！
